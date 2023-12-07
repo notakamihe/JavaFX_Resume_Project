@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Button?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.resume_project.controllers.HomepageController">
+    <VBox style="-fx-background-color: #07F;" alignment="CENTER">
+        <padding>
+            <Insets top="8" bottom="8" />
+        </padding>
+        <Text text="Resume Builder" fill="#FFF" style="-fx-font-size: 28px; -fx-font-weight: bold;" />
+    </VBox>
+    <VBox VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+        <VBox spacing="8" style="-fx-border-width: 0 0 1 0; -fx-border-color: #0004;" alignment="CENTER">
+            <padding>
+                <Insets top="24" bottom="24" left="16" right="16" />
+            </padding>
+            <Text text="Welcome to the Resume Builder!" style="-fx-font-size: 48; -fx-font-weight: bold;" />
+            <Text style="-fx-font-size: 17;" fill="#000A" wrappingWidth="800" textAlignment="CENTER"
+                    text="Get started by creating a new resume or selecting an existing one. Then, all you have to do is select a template, fill out the necessary information, customize, and viola! Your resume is ready." />
+        </VBox>
+        <VBox spacing="16" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+            <padding>
+                <Insets top="16" bottom="16" left="16" right="16" />
+            </padding>
+            <HBox alignment="CENTER">
+                <VBox HBox.hgrow="ALWAYS">
+                    <Text text="Your Resumes" style="-fx-font-size: 24; -fx-font-weight: bold;" />
+                </VBox>
+                <Button text="Create A New Resume" onMouseClicked="#handleCreateResumeClick" textFill="#FFF"
+                        style="-fx-background-color: #07F; -fx-font-weight: bold; -fx-font-size: 16;" />
+            </HBox>
+            <ScrollPane fx:id="scrollPane" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS"
+                        style="--fx-background-color: #0000; -fx-background-insets: 0;">
+                <padding>
+                    <Insets top="8" bottom="8" left="8" right="8" />
+                </padding>
+                <Pane fx:id="pane" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                    <VBox fx:id="resumeListContainer" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" spacing="16">
+                    </VBox>
+                </Pane>
+            </ScrollPane>
+        </VBox>
+    </VBox>
+</VBox>

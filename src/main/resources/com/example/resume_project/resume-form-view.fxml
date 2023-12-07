@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.transform.Translate?>
+<?import javafx.scene.layout.StackPane?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.resume_project.controllers.ResumeFormController" style="-fx-padding: 0;">
+    <VBox alignment="CENTER" style="-fx-background-color: #0077FF; -fx-padding: 8;">
+        <Text text="Enter Resume Information" fill="#FFF"
+              style="-fx-font-size: 28px; -fx-font-weight: bold;" />
+    </VBox>
+    <ScrollPane fitToWidth="true">
+        <VBox HBox.hgrow="ALWAYS">
+            <Button text="Back" style="-fx-font-size: 16;" onMouseClicked="#back">
+                <VBox.margin>
+                    <Insets bottom="24" />
+                </VBox.margin>
+            </Button>
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+            </padding>
+            <VBox maxWidth="1000">
+                <HBox spacing="16">
+                    <VBox HBox.hgrow="ALWAYS">
+                        <Label text="Full Name" />
+                        <TextField fx:id="fullNameField" />
+                    </VBox>
+                    <VBox HBox.hgrow="ALWAYS">
+                        <Label text="Profession" />
+                        <TextField fx:id="professionField" />
+                    </VBox>
+                    <VBox.margin>
+                        <Insets bottom="16.0" />
+                    </VBox.margin>
+                </HBox>
+
+                <Label text="Address" />
+                <TextField fx:id="addressField" />
+
+                <HBox spacing="16">
+                    <VBox HBox.hgrow="ALWAYS">
+                        <Label text="Phone Number" />
+                        <TextField fx:id="phoneField" />
+                    </VBox>
+                    <VBox HBox.hgrow="ALWAYS">
+                        <Label text="Email Address" />
+                        <TextField fx:id="emailField" />
+                    </VBox>
+                    <VBox.margin>
+                        <Insets top="16.0" bottom="16.0" />
+                    </VBox.margin>
+                </HBox>
+
+                <HBox spacing="16" fillHeight="false">
+                    <VBox HBox.hgrow="ALWAYS">
+                        <Label text="Professional Summary" />
+                        <TextArea fx:id="summaryField" wrapText="true" />
+                    </VBox>
+                    <StackPane fx:id="portraitChooser" prefWidth="178" prefHeight="178"
+                               style="-fx-background-color: #CCC; -fx-background-radius: 178;">
+                        <transforms>
+                            <Translate y="16" />
+                        </transforms>
+                        <Button text="Select Portrait" onMouseClicked="#handleChooseImage"
+                                style="-fx-font-size: 14; -fx-font-weight: bold;" />
+                    </StackPane>
+                </HBox>
+
+                <VBox.margin>
+                    <Insets bottom="24.0" />
+                </VBox.margin>
+            </VBox>
+
+            <VBox>
+                <Text text="Education" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+
+                <ScrollPane fitToHeight="true" vbarPolicy="NEVER" style="-fx-background-color: #0000;">
+                    <VBox.margin>
+                        <Insets top="16" />
+                    </VBox.margin>
+                    <HBox prefHeight="240">
+                        <HBox fx:id="educationEntriesContainer" spacing="16" fillHeight="false">
+                        </HBox>
+                        <Button onAction="#addEducationForm" text="Add Entry" prefHeight="224" alignment="CENTER"
+                                style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-background-color: transparent; -fx-border-width: 1; -fx-border-color: #0004; -fx-border-radius: 5;">
+                            <padding>
+                                <Insets left="20.0" right="20.0" />
+                            </padding>
+                        </Button>
+                    </HBox>
+                </ScrollPane>
+                <VBox.margin>
+                    <Insets bottom="24.0" />
+                </VBox.margin>
+            </VBox>
+
+            <VBox>
+                <Text text="Work Experience" style="-fx-font-size: 24px; -fx-font-weight: bold;">
+                    <VBox.margin>
+                        <Insets bottom="16.0" />
+                    </VBox.margin>
+                </Text>
+
+                <ScrollPane fitToHeight="true" vbarPolicy="NEVER" vmax="0" style="-fx-background-color: #0000;">
+                    <HBox maxHeight="Infinity">
+                        <padding>
+                            <Insets bottom="16" />
+                        </padding>
+                        <HBox fx:id="workEntriesContainer" spacing="16" fillHeight="false">
+                        </HBox>
+                        <Button onMouseClicked="#addWorkForm" text="Add Entry" prefHeight="250"
+                                alignment="CENTER" VBox.vgrow="ALWAYS" maxHeight="Infinity"
+                                style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-background-color: transparent; -fx-border-width: 1; -fx-border-color: #0004; -fx-border-radius: 5;">
+                            <padding>
+                                <Insets left="20.0" right="20.0" />
+                            </padding>
+                        </Button>
+                    </HBox>
+                </ScrollPane>
+
+                <VBox.margin>
+                    <Insets bottom="24.0" />
+                </VBox.margin>
+            </VBox>
+
+            <VBox maxWidth="1000">
+                <Text text="Skills" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+
+                <HBox spacing="16">
+                    <VBox.margin>
+                        <Insets top="16" />
+                    </VBox.margin>
+                    <VBox HBox.hgrow="ALWAYS">
+                        <Label text="Professional" />
+                        <TextArea fx:id="skillsField" prefHeight="77" wrapText="true"
+                                  promptText="Put each skill on its own line" />
+                    </VBox>
+                    <VBox HBox.hgrow="ALWAYS">
+                        <Label text="Technical" />
+                        <TextArea fx:id="technicalSkillsField" prefHeight="77" wrapText="true"
+                                  promptText="Put each skill on its own line" />
+                    </VBox>
+                </HBox>
+            </VBox>
+            <VBox alignment="CENTER">
+                <padding>
+                    <Insets top="16" bottom="16" left="16" right="16" />
+                </padding>
+                <Text fx:id="errorText" fill="#B00" style="-fx-font-size: 17; -fx-font-weight: bold;" />
+            </VBox>
+            <VBox alignment="center">
+                <Button text="Build Resume" prefWidth="300" textFill="#FFF" onMouseClicked="#buildResume"
+                        style="-fx-background-color: #0077FF; -fx-font-weight: bold; -fx-font-size: 18;" />
+            </VBox>
+        </VBox>
+    </ScrollPane>
+</VBox>

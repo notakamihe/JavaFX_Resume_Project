@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.geometry.Insets?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.resume_project.controllers.SelectTemplateController">
+    <VBox style="-fx-background-color: #07F;" alignment="CENTER">
+        <padding>
+            <Insets top="8" bottom="8" />
+        </padding>
+        <Text text="Choose A Template" fill="#FFF" style="-fx-font-size: 28px; -fx-font-weight: bold;" />
+    </VBox>
+    <VBox VBox.vgrow="ALWAYS" alignment="CENTER">
+        <HBox fx:id="templateList" spacing="24" alignment="CENTER">
+            <VBox opacity="0.55">
+                <ImageView fitWidth="275" preserveRatio="true">
+                    <Image url="@../../../images/templates/template1.png" />
+                </ImageView>
+            </VBox>
+            <VBox opacity="0.55">
+                <ImageView fitWidth="275" preserveRatio="true">
+                    <Image url="@../../../images/templates/template2.png" />
+                </ImageView>
+            </VBox>
+            <VBox opacity="0.55">
+                <ImageView fitWidth="275" preserveRatio="true">
+                    <Image url="@../../../images/templates/template3.png" />
+                </ImageView>
+            </VBox>
+        </HBox>
+    </VBox>
+    <VBox>
+        <padding>
+            <Insets bottom="24" />
+        </padding>
+        <HBox spacing="16" alignment="CENTER">
+            <Button text="Back" onMouseClicked="#back" style="-fx-font-size: 18;" />
+            <Button text="Next" textFill="#FFF" onMouseClicked="#next"
+                    style="-fx-background-color: #0077FF; -fx-font-weight: bold; -fx-font-size: 18;" />
+        </HBox>
+
+    </VBox>
+</VBox>

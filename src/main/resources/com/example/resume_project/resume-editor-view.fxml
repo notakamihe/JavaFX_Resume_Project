@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import javafx.scene.text.Text?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.resume_project.controllers.ResumeEditorController">
+    <HBox VBox.vgrow="ALWAYS">
+        <VBox prefWidth="300" style="-fx-border-width: 0 1 0 0; -fx-border-color: #0004;" spacing="24">
+            <VBox style="-fx-background-color: #07F;" alignment="CENTER">
+                <padding>
+                    <Insets top="8" bottom="8" />
+                </padding>
+                <Text text="Finalize" fill="#FFF" style="-fx-font-size: 24;" />
+            </VBox>
+
+            <VBox VBox.vgrow="ALWAYS" spacing="32">
+                <Button text="Back" style="-fx-font-size: 16;" onMouseClicked="#back" />
+                <padding>
+                    <Insets left="16" right="16" />
+                </padding>
+
+                <VBox>
+                    <Label text="Font" />
+                    <ComboBox fx:id="fontPicker" promptText="Tahoma" maxWidth="Infinity" onAction="#renderResume">
+                    </ComboBox>
+                </VBox>
+
+                <VBox spacing="16">
+                    <HBox spacing="8" HBox.hgrow="ALWAYS">
+                        <VBox HBox.hgrow="ALWAYS">
+                            <Label text="Color 1" />
+                            <ColorPicker fx:id="color1" HBox.hgrow="ALWAYS" maxWidth="Infinity" onAction="#renderResume" />
+                        </VBox>
+                        <VBox HBox.hgrow="ALWAYS">
+                            <Label text="Color 2" />
+                            <ColorPicker fx:id="color2" HBox.hgrow="ALWAYS" maxWidth="Infinity" onAction="#renderResume" />
+                        </VBox>
+                    </HBox>
+                    <HBox spacing="8">
+                        <VBox HBox.hgrow="ALWAYS">
+                            <Label text="Color 3" />
+                            <ColorPicker fx:id="color3" HBox.hgrow="ALWAYS" maxWidth="Infinity" onAction="#renderResume" />
+                        </VBox>
+                        <VBox HBox.hgrow="ALWAYS">
+                            <Label text="Color 4" />
+                            <ColorPicker fx:id="color4" HBox.hgrow="ALWAYS" maxWidth="Infinity" onAction="#renderResume" />
+                        </VBox>
+                    </HBox>
+                    <HBox spacing="8">
+                        <VBox HBox.hgrow="ALWAYS">
+                            <Label text="Color 5" />
+                            <ColorPicker fx:id="color5" HBox.hgrow="ALWAYS" maxWidth="Infinity" onAction="#renderResume" />
+                        </VBox>
+                        <VBox HBox.hgrow="ALWAYS">
+                            <Label text="Color 6" />
+                            <ColorPicker fx:id="color6" HBox.hgrow="ALWAYS" maxWidth="Infinity" onAction="#renderResume" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+                <VBox alignment="CENTER">
+                    <Button text="Reset" onMouseClicked="#reset" textFill="#FFF"
+                            style="-fx-background-color: #07F; -fx-font-size: 16;" />
+                </VBox>
+            </VBox>
+
+            <VBox spacing="8">
+                <padding>
+                    <Insets top="16" bottom="16" left="16" right="16" />
+                </padding>
+                <VBox visible="false" alignment="CENTER"
+                      style="-fx-background-color: #0B0; -fx-background-radius: 5;">
+                    <padding>
+                        <Insets top="8" bottom="8" left="8" right="8" />
+                    </padding>
+                    <Text fx:id="feedbackText" fill="#FFF" style="-fx-font-size: 15;" />
+                </VBox>
+                <VBox>
+                    <padding>
+                        <Insets top="8" />
+                    </padding>
+                    <Label text="Title" />
+                    <TextField fx:id="titleField" HBox.hgrow="ALWAYS" maxWidth="Infinity" />
+                </VBox>
+                <Button text="Download" onMouseClicked="#download" maxWidth="Infinity"
+                        style="-fx-background-color: #07F; -fx-font-size: 16;" textFill="#FFF">
+                    <graphic>
+                        <FontIcon iconLiteral="gmi-file-download" iconSize="16" fill="#FFF" />
+                    </graphic>
+                </Button>
+                <HBox fx:id="saveDoneContainer" spacing="8">
+                    <Button text="Save" onMouseClicked="#saveToDB" HBox.hgrow="ALWAYS" maxWidth="Infinity"
+                            style="-fx-background-color: #07F; -fx-font-size: 16;" textFill="#FFF">
+                        <graphic>
+                            <FontIcon iconLiteral="gmi-save" iconSize="16" fill="#FFF" />
+                        </graphic>
+                    </Button>
+                    <Button text="Done" onMouseClicked="#done" style="-fx-font-size: 16;" prefHeight="32" />
+                </HBox>
+            </VBox>
+        </VBox>
+        <ScrollPane fx:id="pane" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" fitToWidth="true">
+            <padding>
+                <Insets top="8" bottom="8" left="8" right="8" />
+            </padding>
+            <VBox fx:id="resumeView" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" minHeight="${pane.height - 16.0}" alignment="CENTER">
+            </VBox>
+        </ScrollPane>
+    </HBox>
+</VBox>
